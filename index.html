@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emoji Decoder</title>
+</head>
+<body>
+  <h2>Emoji Decoder</h2>
+  <input type="text" id="emojiInput" placeholder="Enter emojis here">
+  <button onclick="decode()">Decode</button>
+  <p id="output"></p>
+
+  <script>
+    const emojiMap = {
+      "🌞": "A", "🍎": "B", "🚗": "C", "🐶": "D", "🌲": "E",
+      "🍟": "F", "🍇": "G", "🏠": "H", "🍦": "I", "🕹️": "J",
+      "🔑": "K", "🦁": "L", "🌙": "M", "📰": "N", "🦉": "O",
+      "🍕": "P", "👑": "Q", "🌈": "R", "⭐": "S", "🌴": "T",
+      "☂️": "U", "🌋": "V", "🚶": "W", "❌": "X", "🍋": "Y",
+      "⚡": "Z"
+      // Add full mapping here if needed
+    };
+
+    function decode() {
+      const input = document.getElementById("emojiInput").value;
+      let result = "";
+      for (let emoji of input) {
+        result += emojiMap[emoji] || "?"; // Add "?" for unrecognized emojis
+      }
+      document.getElementById("output").innerText = `Decoded: ${result}`;
+    }
+  </script>
+</body>
+</html>
